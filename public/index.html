@@ -2,7 +2,8 @@
     <head>
     </head>
 <body>
-    <h1>ableton link</h1>
+    <h1>Ableton Link</h1>
+    <h2 id="beat">Beat</h2>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
@@ -10,8 +11,10 @@
         var socket = io();
         socket.on('beat', function(data) {
             $("body")
-                .css({backgroundColor: '#f00'})
-                .animate({backgroundColor: '#fff'}, 120);
+              .css({backgroundColor: 'orange'})
+              .animate({backgroundColor: '#fff'}, 300);
+            $("#beat")
+              .html("Beat: " + data.beat)
             console.log(data.beat);
         });
     </script>
